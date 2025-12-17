@@ -1,0 +1,37 @@
+﻿@model AnalizorWebApp.Models.Device
+
+<form id="editDeviceForm">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="mb-3">
+        <label class="form-label">Ad</label>
+        <input name="Name" value="@Model.Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">IP Adresi</label>
+        <input name="IpAddress" value="@Model.IpAddress" class="form-control" />
+    </div>
+
+    <div class="form-check mb-3">
+        <input type="checkbox" name="Enabled" class="form-check-input"
+               @(Model.Enabled ? "checked" : "") />
+        <label class="form-check-label">Aktif</label>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <button type="button"
+                class="btn btn-success"
+                id="btnUpdateDevice">
+            Güncelle
+        </button>
+
+        <button type="button"
+                class="btn btn-danger"
+                onclick="deleteDevice(@Model.Id)">
+            Sil
+        </button>
+    </div>
+</form>

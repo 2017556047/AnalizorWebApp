@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Giriş";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-4">
+
+        <h3 class="mb-3">Giriş</h3>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">
+                @ViewBag.Error
+            </div>
+        }
+
+        <form method="post">
+
+            <div class="mb-3">
+                <label class="form-label">E-posta</label>
+                <input type="text"
+                       name="username"
+                       class="form-control"
+                       required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Şifre</label>
+                <input type="password"
+                       name="password"
+                       class="form-control"
+                       required />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+                Giriş Yap
+            </button>
+
+        </form>
+
+    </div>
+</div>

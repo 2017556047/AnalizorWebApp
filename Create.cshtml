@@ -1,0 +1,50 @@
+﻿@model AnalizorWebApp.Models.Device
+
+@{
+    ViewData["Title"] = "Yeni Cihaz";
+}
+
+<h2>Yeni Cihaz Ekle</h2>
+
+<form asp-area="Admin"
+      asp-controller="Devices"
+      asp-action="Create"
+      method="post"
+      class="mt-4">
+
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Cihaz Adı</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="IpAddress" class="form-label">IP Adresi</label>
+        <input asp-for="IpAddress" class="form-control" placeholder="10.25.20.110" />
+        <span asp-validation-for="IpAddress" class="text-danger"></span>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="Enabled" class="form-check-input" />
+        <label asp-for="Enabled" class="form-check-label">
+            Aktif
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Kaydet
+    </button>
+
+    <a asp-area="Admin"
+       asp-controller="Devices"
+       asp-action="Index"
+       class="btn btn-secondary ms-2">
+        İptal
+    </a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
